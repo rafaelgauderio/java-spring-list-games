@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tb_games")
+@Table(name = "tb_game")
 public class Game {
 
     @Id
@@ -20,6 +20,8 @@ public class Game {
     private Double score;
     private String imgUrl;
     private String shortDescription;
+
+    @Column(columnDefinition= "TEXT")
     private String longDescription;
 
     public Game () {
