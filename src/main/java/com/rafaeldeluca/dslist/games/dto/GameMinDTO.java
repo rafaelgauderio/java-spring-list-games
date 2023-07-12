@@ -20,6 +20,7 @@ public class GameMinDTO {
         this.year = year;
         this.imgUrl = imgUrl;
         this.shortDescription = shortDescription;
+
     }
 
     public GameMinDTO(Game entity) {
@@ -51,6 +52,5 @@ public class GameMinDTO {
     public String getShortDescription() {
         return shortDescription;
     }
-
 
 }
