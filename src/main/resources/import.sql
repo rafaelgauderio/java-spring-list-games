@@ -11,6 +11,8 @@ INSERT INTO tb_game (title, score, game_year, genre, platforms, img_url, short_d
 
 INSERT INTO tb_game_list (name) VALUES ('Aventura e RPG');
 INSERT INTO tb_game_list (name) VALUES ('Jogos de plataforma');
+INSERT INTO tb_game_list (name) VALUES ('Jogos de ação');
+INSERT INTO tb_game_list (name) VALUES ('Jogos de Esporte');
 
 INSERT INTO tb_belonging (game_list_id, game_id, position) VALUES (1, 1, 0);
 INSERT INTO tb_belonging (game_list_id, game_id, position) VALUES (1, 2, 1);
