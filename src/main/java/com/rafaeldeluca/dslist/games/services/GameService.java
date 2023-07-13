@@ -5,6 +5,8 @@ package com.rafaeldeluca.dslist.games.services;
 import com.rafaeldeluca.dslist.games.dto.GameDTO;
 import com.rafaeldeluca.dslist.games.dto.GameMinDTO;
 import com.rafaeldeluca.dslist.games.entities.Game;
+import com.rafaeldeluca.dslist.games.projections.GameMinProjection;
+import com.rafaeldeluca.dslist.games.repositories.GameListRepository;
 import com.rafaeldeluca.dslist.games.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,5 +36,13 @@ public class GameService {
         GameDTO gameDTO = new GameDTO(entity);
         return gameDTO;
     }
+
+    @Transactional(readOnly = true)
+    public List<GameMinDTO> findGamesByList (Long listId) {
+            List<GameMinProjection> listGame = new ArrayList<GameMinProjection>();
+            listGame  =  gameRepository.searchGamesByList(listId);
+            return listGame.stream().map(g -> new GameMinDTO(g)).toList();
+     }
+
 
 }
