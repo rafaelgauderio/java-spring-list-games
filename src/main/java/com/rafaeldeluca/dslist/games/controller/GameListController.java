@@ -2,14 +2,12 @@ package com.rafaeldeluca.dslist.games.controller;
 
 import com.rafaeldeluca.dslist.games.dto.GameListDTO;
 import com.rafaeldeluca.dslist.games.dto.GameMinDTO;
+import com.rafaeldeluca.dslist.games.dto.ReplacementDTO;
 import com.rafaeldeluca.dslist.games.services.GameListService;
 import com.rafaeldeluca.dslist.games.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,4 +32,11 @@ public class GameListController {
         List<GameMinDTO> gameListDTO = gameService.findGamesByList(listId);
         return ResponseEntity.ok().body(gameListDTO);
     }
+
+    @PostMapping(value="/{listId}/replacement")
+    public ResponseEntity<Void> moveGameList (@PathVariable Long listId, @RequestBody ReplacementDTO body) {
+        gameListService.moveList(listId, body.getSourceIndex(), body.getDestinationIndex());
+        return ResponseEntity.noContent().build();
+    }
+
 }

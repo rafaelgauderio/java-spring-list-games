@@ -20,7 +20,6 @@ public class WebConfig {
             public void addCorsMappings(CorsRegistry corsRegistry) {
                 corsRegistry.addMapping("/**").allowedMethods("*").allowedOrigins(corsOrigins);
             }
-
         };
     }
 

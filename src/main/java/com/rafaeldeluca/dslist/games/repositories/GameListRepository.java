@@ -10,7 +10,7 @@ public interface GameListRepository extends JpaRepository<GameList, Long> {
     @Modifying // it is not a SELECT query
     @Query(nativeQuery = true, value = "UPDATE tb_belonging " +
             "SET position = :newPosition " +
-            "WHERE list_id = :listId AND game_id = :gameId")
-    void updateBelongingPosition(Long listId, Long gameId, Integer newPosition);
+            "WHERE game_list_id = :gameListId AND game_id = :gameId")
+    void updateBelongingPosition(Long gameListId, Long gameId, Integer newPosition);
 
 }
